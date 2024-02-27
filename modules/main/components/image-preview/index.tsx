@@ -4,10 +4,11 @@ import { Dialog, Transition } from "@headlessui/react";
 
 type Props = {
   isOpen: boolean;
+  image: string;
   setIsOpen: (value: boolean) => void;
 };
 
-export default function ImagePreview({ isOpen, setIsOpen }: Props) {
+export default function ImagePreview({ isOpen, setIsOpen, image }: Props) {
   function closeModal() {
     setIsOpen(false);
   }
@@ -39,7 +40,7 @@ export default function ImagePreview({ isOpen, setIsOpen }: Props) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -50,8 +51,8 @@ export default function ImagePreview({ isOpen, setIsOpen }: Props) {
                     <p>Details:</p>
                   </div>
 
-                  <div className="relative h-[300px]">
-                    <Image src="" alt="details" fill />
+                  <div className="relative h-[300px] mt-5">
+                    <Image src={image} alt="details" fill />
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

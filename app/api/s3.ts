@@ -22,6 +22,7 @@ export async function handler(req: NextApiRequest, res: NextApiResponse) {
 
             const data = await s3.getObject(params).promise();
             return res.status(200).json(data);
+            break
 
         default:
             break
