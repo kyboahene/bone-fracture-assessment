@@ -5,11 +5,6 @@ type Props = {
 };
 
 const ClassFilter = ({ items, item, setItem }: Props) => {
-  /**
-   * stores the items in a state when clicked
-   *
-   * @param selectedItem {string}
-   */
 
   function handleClick(selectedItem: string) {
     const exist = isSelected(selectedItem);
@@ -26,12 +21,6 @@ const ClassFilter = ({ items, item, setItem }: Props) => {
     }
   }
 
-  /**
-   *
-   *
-   * @param value {string}
-   * @returns {string | undefined}
-   */
   function isSelected(value: string): string | undefined {
     if (item.length > 0) {
       return item.find((i) => i === value);
