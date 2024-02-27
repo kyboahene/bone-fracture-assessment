@@ -99,7 +99,7 @@ const BoneFractureTabs = ({ filterData, setFilterData }: Props) => {
                       />
                     </div>
 
-                    <span>Finger {index}</span>
+                    <span>Finger {index + 1}</span>
                   </div>
                 ))}
               </div>
