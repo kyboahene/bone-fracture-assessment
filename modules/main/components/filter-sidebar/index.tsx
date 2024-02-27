@@ -1,11 +1,17 @@
 "use client";
 import Image from "next/image";
+import ReactSlider from "react-slider";
 
 import ClassFilter from "../class-filter/class-filter";
 import { useFilters } from "@/lib/context/filter-context";
 
 const FilterSidebar = () => {
-  const { selectedClassFilter, setSelectedClassFilter } = useFilters();
+  const {
+    selectedClassFilter,
+    setSelectedClassFilter,
+    poligonRange,
+    setPoligonRange,
+  } = useFilters();
 
   const classFilters = [
     "Elbow positive",
@@ -16,6 +22,21 @@ const FilterSidebar = () => {
     "Shoulder fracture",
     "Wrist positive",
   ];
+
+  function handleDeselect() {
+    setSelectedClassFilter([]);
+  }
+
+  function handleSelectAll() {
+    setSelectedClassFilter(classFilters);
+  }
+
+  function handleClearFilters() {
+    setPoligonRange(0);
+    setSelectedClassFilter([]);
+  }
+
+  const classSelected = selectedClassFilter.length > 0;
 
   return (
     <div className="border rounded-md flex justify-center p-4 h-full">
@@ -33,8 +54,22 @@ const FilterSidebar = () => {
           <p className="font-bold">Classes filter</p>
 
           <div className="flex items-center gap-4 text-[12px]">
-            <p className="text-blue-500">Select all</p>
-            <p className="text-gray-400">Deselect all</p>
+            <button
+              className={`${
+                !classSelected ? "text-blue-500" : "text-gray-400"
+              }`}
+              onClick={() => handleSelectAll()}
+            >
+              Select all
+            </button>
+            <button
+              className={`${
+                classSelected ? "text-blue-500" : "text-gray-400 "
+              }`}
+              onClick={() => handleDeselect()}
+            >
+              Deselect all
+            </button>
           </div>
           <ClassFilter
             items={classFilters}
@@ -44,9 +79,27 @@ const FilterSidebar = () => {
 
           <div className="flex flex-col gap-4">
             <p className="font-bold">Poligon range</p>
+            <div className="mb-4">
+              <ReactSlider
+                className="customSlider"
+                trackClassName="customSlider-track"
+                thumbClassName="customSlider-thumb"
+                markClassName="customSlider-mark"
+                defaultValue={[0, 4]}
+                value={poligonRange}
+                onChange={(value: number) => setPoligonRange(value)}
+                marks={1}
+                min={0}
+                max={4}
+                // ariaLabel={["Lower thumb", "Upper thumb"]}
+              />
+            </div>
             <div>
               <div className="flex justify-between text-[12px]">
-                <div className="flex items-center gap-1">
+                <button
+                  className="flex items-center gap-1"
+                  onClick={() => handleClearFilters()}
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +117,7 @@ const FilterSidebar = () => {
                     </svg>
                   </div>
                   <span className="font-bold">Clear Filters</span>
-                </div>
+                </button>
 
                 <p className="text-gray-400">Need help?</p>
               </div>

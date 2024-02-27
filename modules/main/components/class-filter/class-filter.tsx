@@ -5,7 +5,6 @@ type Props = {
 };
 
 const ClassFilter = ({ items, item, setItem }: Props) => {
-
   function handleClick(selectedItem: string) {
     const exist = isSelected(selectedItem);
 
@@ -37,10 +36,15 @@ const ClassFilter = ({ items, item, setItem }: Props) => {
             <button
               className={`${
                 isSelected(item) ? "bg-black text-white" : "border-black border"
-              } transform transition-all duration-[0.5s] font-bold rounded-[25px] text-[12px] w-fit relative cursor-pointer px-[13px] py-[4px] shadow-sm focus:outline-none`}
+              } transform transition-all duration-[0.5s] flex items-center gap-2 font-bold rounded-[25px] text-[12px] w-fit relative cursor-pointer px-[13px] py-[4px] shadow-sm focus:outline-none`}
               key={idx}
               onClick={() => handleClick(item)}
             >
+              <span
+                className={`rounded-full p-1 ${
+                  isSelected(item) ? "bg-white" : "bg-black"
+                }`}
+              ></span>
               <p className="text-center">{item}</p>
             </button>
           ))}

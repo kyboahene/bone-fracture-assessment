@@ -1,8 +1,15 @@
-import BoneFractureTabs from "../tabs";
-import { getData } from "@/services/s3";
+"use client";
 
-const Main = async () => {
-  // const data = await getData();
+import { useState } from "react";
+import BoneFractureTabs from "../tabs";
+
+interface Data {
+  id: number;
+  name: string;
+}
+
+const Main = () => {
+  const [filterData, setFilterData] = useState<Data[]>([]);
 
   return (
     <section className="py-4">
@@ -11,12 +18,15 @@ const Main = async () => {
           <h1 className="font-bold text-3xl">Bone-fraction-detection</h1>
 
           <p>
-            <span className="font-bold">54</span> of{" "}
-            <span className="font-bold">100</span> images
+            <span className="font-bold">{filterData.length}</span> of{" "}
+            <span className="font-bold">66</span> images
           </p>
         </div>
 
-        <BoneFractureTabs />
+        <BoneFractureTabs
+          filterData={filterData}
+          setFilterData={setFilterData}
+        />
       </div>
     </section>
   );

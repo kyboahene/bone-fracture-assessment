@@ -5,10 +5,16 @@ import { Dialog, Transition } from "@headlessui/react";
 type Props = {
   isOpen: boolean;
   image: string;
+  fileName: string;
   setIsOpen: (value: boolean) => void;
 };
 
-export default function ImagePreview({ isOpen, setIsOpen, image }: Props) {
+export default function ImagePreview({
+  isOpen,
+  setIsOpen,
+  image,
+  fileName,
+}: Props) {
   function closeModal() {
     setIsOpen(false);
   }
@@ -45,7 +51,7 @@ export default function ImagePreview({ isOpen, setIsOpen, image }: Props) {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Image Title
+                    {fileName}
                   </Dialog.Title>
                   <div className="mt-2">
                     <p>Details:</p>

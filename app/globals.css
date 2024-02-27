@@ -8,3 +8,80 @@
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
 }
+
+.customSlider-track {
+  top: 8px;
+  height: 4px;
+  background: #ddd;
+}
+
+.customSlider-track.customSlider-track-0 {
+  background: rgba(255, 215, 92, 1);
+}
+
+.customSlider-thumb {
+  cursor: pointer;
+  background: rgba(255, 215, 92, 1);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  outline: none;
+}
+
+.customSlider-mark {
+  cursor: pointer;
+  top: 6px;
+  width: 3px;
+  height: 8px;
+  background-color: #fff;
+}
+
+.scrollable-div::-webkit-scrollbar {
+  width: 0; /* Set the width of the scrollbar */
+}
+
+/* Track */
+.scrollable-div::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Set the background color of the track */
+}
+
+/* Handle */
+.scrollable-div::-webkit-scrollbar-thumb {
+  background: #888; /* Set the color of the scrollbar handle */
+  border-radius: 5px; /* Optional: Add rounded corners to the scrollbar handle */
+}
+
+/* Handle on hover */
+.scrollable-div::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Set the color of the scrollbar handle on hover */
+}
+
+.pagination {
+  list-style: none;
+  height: 31.5px;
+  width: 31.5px;
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #ffd75c;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.page-item {
+  list-style: none;
+  padding: 2px 12px;
+  height: 31.5px;
+  width: 31.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  margin: 0 10px;
+}
