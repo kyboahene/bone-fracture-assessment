@@ -3,15 +3,15 @@ import Image from "next/image";
 import ReactSlider from "react-slider";
 
 import ClassFilter from "../class-filter/class-filter";
-import { useFilters } from "@/lib/context/filter-context";
+import { useAppData } from "@/lib/context";
 
 const FilterSidebar = () => {
   const {
     selectedClassFilter,
     setSelectedClassFilter,
-    poligonRange,
-    setPoligonRange,
-  } = useFilters();
+    polygonRange,
+    setPolygonRange,
+  } = useAppData();
 
   const classFilters = [
     "Elbow positive",
@@ -32,7 +32,7 @@ const FilterSidebar = () => {
   }
 
   function handleClearFilters() {
-    setPoligonRange(0);
+    setPolygonRange(0);
     setSelectedClassFilter([]);
   }
 
@@ -86,8 +86,8 @@ const FilterSidebar = () => {
                 thumbClassName="customSlider-thumb"
                 markClassName="customSlider-mark"
                 defaultValue={[0, 4]}
-                value={poligonRange}
-                onChange={(value: number) => setPoligonRange(value)}
+                value={polygonRange}
+                onChange={(value: number) => setPolygonRange(value)}
                 marks={1}
                 min={0}
                 max={4}
