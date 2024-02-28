@@ -37,7 +37,7 @@
 }
 
 .scrollable-div::-webkit-scrollbar {
-  width: 0; /* Set the width of the scrollbar */
+  width: 5px; /* Set the width of the scrollbar */
 }
 
 /* Track */

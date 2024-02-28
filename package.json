@@ -19,6 +19,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-paginate": "^8.2.0",
+    "react-polygon": "^0.2.0",
     "react-slider": "^2.0.6",
     "tailwind-merge": "^2.2.1"
   },

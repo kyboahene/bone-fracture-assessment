@@ -22,7 +22,10 @@ type Props = {
 
 const BoneFractureTabs = ({ data, isLoading }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<Record | null>(null);
+  const [selectedImage, setSelectedImage] = useState<React.ReactNode | null>(
+    null
+  );
+  const [fileName, setFileName] = useState("");
 
   const { currentImages } = useAppData();
 
@@ -54,7 +57,7 @@ const BoneFractureTabs = ({ data, isLoading }: Props) => {
                 key={idx}
                 className={classNames("flex flex-col gap-4")}
               >
-                <div className="grid grid-cols-6 overflow-auto h-[380px] gap-4 scrollable-div">
+                <div className="grid grid-cols-6 overflow-auto h-[660px] gap-4 overflow-y-scroll scrollable-div">
                   {currentImages &&
                     currentImages.map((i, index) => (
                       <TabPanelContent
@@ -62,6 +65,7 @@ const BoneFractureTabs = ({ data, isLoading }: Props) => {
                         i={i}
                         setIsOpen={setIsOpen}
                         setSelectedImage={setSelectedImage}
+                        setFileName={setFileName}
                       />
                     ))}
                 </div>
@@ -78,7 +82,12 @@ const BoneFractureTabs = ({ data, isLoading }: Props) => {
         </div>
       )}
 
-      <ImagePopUp setIsOpen={setIsOpen} isOpen={isOpen} image={selectedImage} />
+      <ImagePopUp
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+        image={selectedImage}
+        fileName={fileName}
+      />
     </div>
   );
 };

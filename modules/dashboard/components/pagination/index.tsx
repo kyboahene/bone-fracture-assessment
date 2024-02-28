@@ -16,15 +16,16 @@ type Props = {
 
 const Paginate = ({ data }: Props) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState(54);
 
   const {
+    polygonRange,
     setCurrentImages,
     setActiveTotalCount,
     setCurrentImagesPerPage,
   } = useAppData();
 
-  const PER_PAGE = 54;
-  const pageCount = Math.ceil(data.length / PER_PAGE);
+  let pageCount = Math.ceil(data.length / perPage);
 
   useEffect(() => {
     if (data) {
@@ -34,14 +35,29 @@ const Paginate = ({ data }: Props) => {
 
   useEffect(() => {
     if (data) {
-      const temp = data.slice(
-        currentPage * PER_PAGE,
-        (currentPage + 1) * PER_PAGE
+      let temp = data;
+
+      if (polygonRange > 0) {
+        temp = temp.filter(
+          (i) =>
+            i.numberOfPolygons === polygonRange ||
+            (polygonRange === 4 && i.numberOfPolygons > 4)
+        );
+        pageCount = Math.ceil(temp.length / perPage);
+
+        setActiveTotalCount(temp.length);
+        setPerPage(temp.length);
+      }
+
+      let slicedData = temp.slice(
+        currentPage * perPage,
+        (currentPage + 1) * perPage
       );
-      setCurrentImages(temp);
-      setCurrentImagesPerPage(temp.length);
+
+      setCurrentImages(slicedData);
+      setCurrentImagesPerPage(slicedData.length);
     }
-  }, [currentPage, data]);
+  }, [currentPage, data, polygonRange]);
 
   function handlePageClick(e: any) {
     setCurrentPage(e.selected);
