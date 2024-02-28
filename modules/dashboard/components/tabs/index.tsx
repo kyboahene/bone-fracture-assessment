@@ -73,7 +73,7 @@ const BoneFractureTabs = ({ data, isLoading }: Props) => {
           </Tab.Panels>
         </Tab.Group>
       ) : (
-        <div className="border">
+        <div>
           <p className="font-bold">Loading...</p>
         </div>
       )}

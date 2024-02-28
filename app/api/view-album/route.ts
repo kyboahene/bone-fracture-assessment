@@ -23,8 +23,6 @@ export async function GET() {
         const albumPhotosKey = encodeURIComponent(albumName as string) + "/"
         const data = await s3.listObjects({ Prefix: albumPhotosKey }).promise()
 
-        console.log(data)
-
         let testData = await s3.listObjects({ Prefix: albumPhotosKey + "test/images" }).promise();
         let trainData = await s3.listObjects({ Prefix: albumPhotosKey + "train/images" }).promise();
         let validData = await s3.listObjects({ Prefix: albumPhotosKey + "valid/images" }).promise();
