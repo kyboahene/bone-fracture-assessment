@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Tab } from "@headlessui/react";
 
 import Paginate from "../pagination";
-import ImagePreview from "../image-popup";
+import ImagePopUp from "../image-popup";
 import TabPanelContent from "./tab-panel-content";
 
 // lib
@@ -78,11 +78,7 @@ const BoneFractureTabs = ({ data, isLoading }: Props) => {
         </div>
       )}
 
-      <ImagePreview
-        setIsOpen={setIsOpen}
-        isOpen={isOpen}
-        image={selectedImage}
-      />
+      <ImagePopUp setIsOpen={setIsOpen} isOpen={isOpen} image={selectedImage} />
     </div>
   );
 };
