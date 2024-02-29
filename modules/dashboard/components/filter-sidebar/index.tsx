@@ -78,7 +78,7 @@ const FilterSidebar = () => {
           />
 
           <div className="flex flex-col gap-4">
-            <p className="font-bold">Poligon range</p>
+            <p className="font-bold">Polygon range</p>
 
             <div className="flex justify-between">
               <p>

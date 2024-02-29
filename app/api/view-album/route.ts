@@ -38,6 +38,8 @@ export async function GET() {
             .listObjects({ Prefix: albumPhotosKey + "valid/images" })
             .promise();
 
+        console.log(validImages)
+
         //labels
         let testLabels = await s3
             .listObjects({ Prefix: albumPhotosKey + "test/labels" })
@@ -71,7 +73,7 @@ export async function GET() {
         );
 
         validData = await generateData(
-            validImages.Contents.slice(0, 200),
+            validLabels.Contents.slice(0, 200),
             validImages.Contents.slice(0, 200),
             baseUrl
         );

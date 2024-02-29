@@ -21,12 +21,24 @@
 }
 
 .customSlider-thumb {
+  position: relative;
   cursor: pointer;
   background: rgba(255, 215, 92, 1);
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 100%;
   outline: none;
+}
+
+.customSlider-thumb::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background-color: #fff;
 }
 
 .customSlider-mark {
