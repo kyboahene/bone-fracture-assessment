@@ -50,7 +50,7 @@ export default function ImagePreview({
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all">
-                  <div className="flex">
+                  <div className="flex justify-between">
                     <div className="flex-1">
                       <Dialog.Title
                         as="h3"
