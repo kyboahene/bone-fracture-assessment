@@ -1,10 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { Record } from "@/lib/types";
 import PolygonOverlay from "../polygon-overlay";
-import PolygonOnImage from "../polygon-overlay/try";
 
 type Props = {
   i: Record;
@@ -26,9 +24,9 @@ const TabPanelContent = ({
   }
 
   return (
-    <div className="h-[200px]">
+    <div className="h-[200px] border">
       <div
-        className="relative h-[170px] border cursor-pointer"
+        className="relative border h-full cursor-pointer"
         onClick={() =>
           openModal(
             <PolygonOverlay polygonData={i.label} imageUrl={i.image} />,
@@ -36,24 +34,7 @@ const TabPanelContent = ({
           )
         }
       >
-        {/* <Image
-          src={i.image}
-          className="absolute object-cover z-10"
-          alt="fracture"
-          fill
-        /> */}
         <PolygonOverlay polygonData={i.label} imageUrl={i.image} />
-        {/* <PolygonOnImage
-          imageUrl={i.image}
-          polygons={[
-            {
-              classIndex: 0,
-              vertices: i.label
-                .split(" ")
-                .map((coord) => Math.round(parseFloat(coord) * 1000)),
-            },
-          ]}
-        /> */}
       </div>
 
       <p className="truncate">{i.name}</p>

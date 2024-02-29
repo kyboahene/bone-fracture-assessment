@@ -9,7 +9,7 @@ import TabPanelContent from "./tab-panel-content";
 
 // lib
 import { useAppData } from "@/lib/context";
-import { FracturedImages, Record } from "@/lib/types";
+import { FracturedImages } from "@/lib/types";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -57,8 +57,9 @@ const BoneFractureTabs = ({ data, isLoading }: Props) => {
                 key={idx}
                 className={classNames("flex flex-col gap-4")}
               >
-                <div className="grid grid-cols-6 overflow-auto h-[660px] gap-4 overflow-y-scroll scrollable-div">
+                <div className="grid grid-cols-6 overflow-auto h-[560px] gap-4 gap-y-8 overflow-y-scroll scrollable-div">
                   {currentImages &&
+                    currentImages?.length > 0 &&
                     currentImages.map((i, index) => (
                       <TabPanelContent
                         key={index}
@@ -69,7 +70,7 @@ const BoneFractureTabs = ({ data, isLoading }: Props) => {
                       />
                     ))}
                 </div>
-                <div className="flex justify-center items-center py-4">
+                <div className="flex justify-center items-center">
                   <Paginate data={type} />
                 </div>
               </Tab.Panel>

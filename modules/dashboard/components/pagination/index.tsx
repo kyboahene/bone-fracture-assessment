@@ -16,7 +16,7 @@ type Props = {
 
 const Paginate = ({ data }: Props) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(54);
+  const [pageCount, setPageCount] = useState(0);
 
   const {
     polygonRange,
@@ -25,37 +25,30 @@ const Paginate = ({ data }: Props) => {
     setCurrentImagesPerPage,
   } = useAppData();
 
-  let pageCount = Math.ceil(data.length / perPage);
-
-  useEffect(() => {
-    if (data) {
-      setActiveTotalCount(data.length);
-    }
-  }, [data]);
+  const perPage = 54;
 
   useEffect(() => {
     if (data) {
       let temp = data;
+      let paginatedData: Record[] = [];
 
       if (polygonRange > 0) {
-        temp = temp.filter(
-          (i) =>
-            i.numberOfPolygons === polygonRange ||
-            (polygonRange === 4 && i.numberOfPolygons > 4)
-        );
-        pageCount = Math.ceil(temp.length / perPage);
-
-        setActiveTotalCount(temp.length);
-        setPerPage(temp.length);
+        temp = temp.filter((i) => i.numberOfPolygons === polygonRange);
       }
 
-      let slicedData = temp.slice(
-        currentPage * perPage,
-        (currentPage + 1) * perPage
-      );
+      if (temp.length > 54) {
+        paginatedData = temp.slice(
+          currentPage * perPage,
+          (currentPage + 1) * perPage
+        );
+      } else {
+        paginatedData = temp;
+      }
 
-      setCurrentImages(slicedData);
-      setCurrentImagesPerPage(slicedData.length);
+      setActiveTotalCount(temp.length);
+      setPageCount(Math.ceil(temp.length / perPage));
+      setCurrentImages(paginatedData);
+      setCurrentImagesPerPage(paginatedData.length);
     }
   }, [currentPage, data, polygonRange]);
 
@@ -63,18 +56,20 @@ const Paginate = ({ data }: Props) => {
     setCurrentPage(e.selected);
   }
   return (
-    <ReactPaginate
-      breakLabel="..."
-      nextLabel={<ChevronRight />}
-      containerClassName={"pagination"}
-      pageClassName={"page-item"}
-      activeClassName={"active"}
-      onPageChange={handlePageClick}
-      pageRangeDisplayed={5}
-      pageCount={pageCount}
-      previousLabel={<ChevronLeft />}
-      renderOnZeroPageCount={null}
-    />
+    <div>
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel={<p> {"> "}</p>}
+        containerClassName={"pagination"}
+        pageClassName={"page-item"}
+        activeClassName={"active"}
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel={"<"}
+        renderOnZeroPageCount={null}
+      />
+    </div>
   );
 };
 

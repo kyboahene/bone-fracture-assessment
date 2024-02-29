@@ -31,7 +31,7 @@ export default function ImagePreview({
             enter="ease-out duration-300"
             enterFrom="opacity-0"
             enterTo="opacity-100"
-            leave="ease-in duration-200"
+            leave="ease-in durdivation-200"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
@@ -49,18 +49,24 @@ export default function ImagePreview({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
-                  >
-                    {fileName}
-                  </Dialog.Title>
+                <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <div className="flex justify-between">
+                    <Dialog.Title
+                      as="h3"
+                      className="text-lg font-medium leading-6 text-gray-900"
+                    >
+                      {fileName}
+                    </Dialog.Title>
+
+                    <button onClick={closeModal}>
+                      <span>x</span>
+                    </button>
+                  </div>
                   <div className="mt-2">
                     <p>Details:</p>
                   </div>
 
-                  {image}
+                  <div className="h-[400px]">{image}</div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

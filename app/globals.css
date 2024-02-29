@@ -58,14 +58,15 @@
 
 .pagination {
   list-style: none;
-  height: 31.5px;
-  width: 31.5px;
+  height: 30.5px;
+  width: 100%;
   display: flex;
-  gap: 3px;
   justify-content: center;
   align-items: center;
-  margin-top: 2px;
   cursor: pointer;
+  border-radius: 25px;
+  gap: 5px;
+  /* background: rgba(209, 209, 214, 1); */
 }
 
 .active {
@@ -83,5 +84,20 @@
   justify-content: center;
   align-items: center;
   margin-top: 2px;
-  margin: 0 10px;
+}
+
+.next {
+  margin-left: 20px;
+}
+
+.next.disabled {
+  color: rgba(209, 209, 214, 1);
+}
+
+.previous {
+  margin-right: 20px;
+}
+
+.previous.disabled {
+  color: rgba(209, 209, 214, 1);
 }

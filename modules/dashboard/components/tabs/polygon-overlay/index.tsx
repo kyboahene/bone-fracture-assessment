@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+/* eslint-disable @next/next/no-img-element */
+import React, { useRef, useEffect, useState } from "react";
 
 interface Props {
   imageUrl: string;
@@ -47,7 +48,11 @@ const ImageWithPolygon: React.FC<Props> = ({ imageUrl, polygonData }) => {
     image.src = imageUrl;
   }, [imageUrl, polygonData]);
 
-  return <canvas ref={canvasRef} />;
+  return (
+    <>
+      <canvas ref={canvasRef} className="h-full w-full" />
+    </>
+  );
 };
 
 export default ImageWithPolygon;
