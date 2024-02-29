@@ -81,7 +81,7 @@ const FilterSidebar = () => {
   return (
     <div className="border rounded-md flex justify-center p-4 h-full">
       <div className="flex flex-col gap-8">
-        <div className="relative h-20">
+        <div className="relative h-[65px]">
           <Image
             src="/Logo.svg"
             alt="logo"
