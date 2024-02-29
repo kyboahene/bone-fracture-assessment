@@ -79,6 +79,15 @@ const FilterSidebar = () => {
 
           <div className="flex flex-col gap-4">
             <p className="font-bold">Poligon range</p>
+
+            <div className="flex justify-between">
+              <p>
+                min <span className="font-bold">0</span>
+              </p>
+              <p>
+                max <span className="font-bold">4</span>
+              </p>
+            </div>
             <div className="mb-4">
               <ReactSlider
                 className="customSlider"

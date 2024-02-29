@@ -13,6 +13,7 @@
   top: 8px;
   height: 4px;
   background: #ddd;
+  border-radius: 35px;
 }
 
 .customSlider-track.customSlider-track-0 {
@@ -31,29 +32,31 @@
 .customSlider-mark {
   cursor: pointer;
   top: 6px;
-  width: 3px;
+  width: 6px;
   height: 8px;
+  border-radius: 35px;
   background-color: #fff;
 }
 
 .scrollable-div::-webkit-scrollbar {
-  width: 5px; /* Set the width of the scrollbar */
+  width: 5px;
 }
 
 /* Track */
 .scrollable-div::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Set the background color of the track */
+  background: rgba(209, 209, 214, 1);
+  border-radius: 25px;
 }
 
 /* Handle */
 .scrollable-div::-webkit-scrollbar-thumb {
-  background: #888; /* Set the color of the scrollbar handle */
-  border-radius: 5px; /* Optional: Add rounded corners to the scrollbar handle */
+  background: #ffd75c;
+  border-radius: 5px;
 }
 
 /* Handle on hover */
 .scrollable-div::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Set the color of the scrollbar handle on hover */
+  background: #ffd75c;
 }
 
 .pagination {
@@ -66,7 +69,6 @@
   cursor: pointer;
   border-radius: 25px;
   gap: 5px;
-  /* background: rgba(209, 209, 214, 1); */
 }
 
 .active {
