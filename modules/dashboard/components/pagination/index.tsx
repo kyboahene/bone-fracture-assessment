@@ -7,9 +7,6 @@ import React, { useEffect, useState } from "react";
 import { Record } from "@/lib/types";
 import { useAppData } from "@/lib/context";
 
-import ChevronLeft from "@/assets/icons/chevron-left";
-import ChevronRight from "@/assets/icons/chevron-right";
-
 type Props = {
   data: Record[];
 };

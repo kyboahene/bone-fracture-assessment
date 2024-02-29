@@ -57,7 +57,7 @@ const BoneFractureTabs = ({ data, isLoading }: Props) => {
                 key={idx}
                 className={classNames("flex flex-col gap-4")}
               >
-                <div className="grid grid-cols-6 overflow-auto h-[560px] gap-4 gap-y-8 overflow-y-scroll scrollable-div">
+                <div className="grid grid-cols-6 overflow-auto h-[660px] gap-4 gap-y-8 overflow-y-scroll scrollable-div">
                   {currentImages &&
                     currentImages?.length > 0 &&
                     currentImages.map((i, index) => (
